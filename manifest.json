@@ -3,10 +3,13 @@
   "description": "Build an Extension!",
   "version": "1.0",
   "manifest_version": 3,
-  "background": {
-    "service_worker": "background.js"
-  },
-  "permissions": [ "storage", "activeTab", "declarativeContent", "scripting" ],
+  "content_scripts": [
+    {
+      "matches": [ "https://*/*" ],
+      "js": [ "content.js" ]
+    }
+  ],
+  "permissions": [ "storage", "activeTab", "declarativeContent", "scripting", "tabs" ],
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
